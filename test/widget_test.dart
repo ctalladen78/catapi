@@ -9,22 +9,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:tiffany_cat/main.dart';
+import 'package:tiffany_cat/cat_api.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  testWidgets('Test streambuilder', (WidgetTester tester) async {
+    await dotenv.load(fileName: '.env');
+    String _uriGif = dotenv.env["URI_GIF"].toString();
+    String _uriStatic = dotenv.env["URI_STATIC"].toString();
+    CatApi catApi = CatApi(_uriGif, _uriStatic);
+    Widget image = catApi.getImage();
+    await tester.pumpWidget(image);
+    await tester.pump(Duration.zero);
+    Widget mockWidget = Center(child:Image.network(_uriStatic));
+    expect(find.byWidget(mockWidget), findsOneWidget);
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('Test api key not null', () async{
+    await dotenv.load(fileName: '.env');
+    String _uriGif = dotenv.env["URI_GIF"].toString();
+    String _uriStatic = dotenv.env["URI_STATIC"].toString();
+    expect(_uriGif, "https://cataas.com/c/gif");
+    expect(_uriStatic, "https://cataas.com/cat");
   });
 }

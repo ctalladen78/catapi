@@ -8,18 +8,15 @@ class CatApi{
     StreamController<String> _imgCtrl = StreamController.broadcast();
     DefaultCacheManager manager = new DefaultCacheManager();
     bool showSpinner = false;
+    String _uriGif;
+    String _uriStatic;
 
-    CatApi();
-
-    void getImageJson(String uri) {
-      _imgCtrl.sink.add(uri);
-    }
+    CatApi(this._uriGif, this._uriStatic);
 
     Widget getImage() {
       return StreamBuilder<String>(
         stream: _imgCtrl.stream,
-       builder: (BuildContext context, AsyncSnapshot snapshot){          
-        print(snapshot);
+        builder: (BuildContext context, AsyncSnapshot snapshot){          
         if(snapshot.hasData && snapshot.connectionState == ConnectionState.active){
           showSpinner = false;
           return CachedNetworkImage(
@@ -28,15 +25,14 @@ class CatApi{
           );
         }
         return Center(
-          child: Image.network("https://cataas.com/cat")
+          child: Image.network(this._uriStatic)
         );
       });
     }
 
     Future<void> updateImage() async {
       manager.emptyCache();
-      // await DefaultCacheManager().removeFile('https://cataas.com/c/gif');
-      getImageJson("https://cataas.com/c/gif");
+      _imgCtrl.sink.add(this._uriGif);
     }
 
 
