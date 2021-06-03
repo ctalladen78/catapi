@@ -11,9 +11,9 @@ URI_STATIC=https://cataas.com/cat
 ```
 
 # 2. Run in a simulator:
-2. open a mobile simulator
-3. run in terminal `$ flutter pub get`
-4. run in terminal `$ flutter run`
+1. open a mobile simulator
+2. run in terminal `$ flutter pub get`
+3. run in terminal `$ flutter run`
 
 # 3. How to run tests:
 1. run `$ flutter test`
