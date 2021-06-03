@@ -1,6 +1,6 @@
 
 # 1. Project setup:
-1. Clone this repo
+1. Flutter build version v2.0.0
 2. Follow the flutter_dotenv setup
 3. See https://pub.dev/packages/flutter_dotenv
 
@@ -12,7 +12,7 @@ URI_STATIC=https://cataas.com/cat
 
 # 2. Run in a simulator:
 1. Open a mobile simulator
-2. Run in terminal `$ flutter pub get`
+2. Install dependencies `$ flutter pub get`
 3. Run in terminal `$ flutter run`
 
 # 3. How to run tests:
