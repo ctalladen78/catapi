@@ -50,10 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Stack(
+        alignment: Alignment.bottomCenter,
         children:[
-          widget.catApi.getImage(),
           Center(
-            child: GestureDetector(
+            child: widget.catApi.getImage(),
+          ),
+             GestureDetector(
               onTap: (){
                 setState(() {
                 widget.catApi.updateImage();
@@ -61,8 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               child: Container(
-                height: 100,
-                width: 100,
+                padding: EdgeInsets.all(30),
+                margin: EdgeInsets.all(50),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10), 
                   color: Colors.amber
@@ -72,11 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: CircularProgressIndicator(
                     valueColor:AlwaysStoppedAnimation<Color>(Colors.purple),
                   ),
-                  replacement: Container(),
+                  replacement: Text("Generate", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
                 )
               ),
             ),
-          )
         ]),
     );
   }
