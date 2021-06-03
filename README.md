@@ -1,19 +1,19 @@
 
 # 1. Project setup:
-1. clone this repo
-2. follow the flutter_dotenv setup
-3. see https://pub.dev/packages/flutter_dotenv
+1. Clone this repo
+2. Follow the flutter_dotenv setup
+3. See https://pub.dev/packages/flutter_dotenv
 
-# Environment variables in .env file
+### Environment variables in .env file
 ```
 URI_GIF=https://cataas.com/c/gif
 URI_STATIC=https://cataas.com/cat
 ```
 
 # 2. Run in a simulator:
-1. open a mobile simulator
-2. run in terminal `$ flutter pub get`
-3. run in terminal `$ flutter run`
+1. Open a mobile simulator
+2. Run in terminal `$ flutter pub get`
+3. Run in terminal `$ flutter run`
 
 # 3. How to run tests:
-1. run `$ flutter test`
+1. Run `$ flutter test`
