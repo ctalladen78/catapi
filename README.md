@@ -1,8 +1,8 @@
 
 # 1. Project setup:
 1. clone this repo
-2.a follow the flutter_dotenv setup
-2.b see https://pub.dev/packages/flutter_dotenv
+2. follow the flutter_dotenv setup
+3. see https://pub.dev/packages/flutter_dotenv
 
 # Environment variables in .env file
 ```
